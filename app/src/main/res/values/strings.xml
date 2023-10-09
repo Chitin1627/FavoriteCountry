@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Favorite City</string>
+    <string name="choose_category">Choose Category</string>
+    <string name="choose_place">Choose Place</string>
+    <string name="coffee">Coffee Shops</string>
+    <string name="restaurant">Restaurants</string>
+    <string name="kid_friendly">Kid-Friendly Places</string>
+    <string name="parks">Parks</string>
+    <string name="shopping_centre">Shopping Centres</string>
+    <string name="back_button">Back</string>
+    <string name="attractions_in_norway">Attractions in Norway</string>
+</resources>
