@@ -4,7 +4,6 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,6 +27,7 @@ import com.example.favoritecity.data.DataSource
 import com.example.favoritecity.ui.AppViewModel
 import com.example.favoritecity.ui.StartScreen
 import com.example.favoritecity.ui.CategoryScreen
+import com.example.favoritecity.ui.PlaceScreen
 
 enum class FavoriteCityScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -74,7 +74,14 @@ fun FavoriteCityApp() {
             }
 
             composable(route = FavoriteCityScreen.Category.name) {
-                CategoryScreen(categories = DataSource.categories)
+                CategoryScreen(
+                    categories = DataSource.categories,
+                    onClick = { navController.navigate(FavoriteCityScreen.Place.name) }
+                )
+            }
+
+            composable(route = FavoriteCityScreen.Place.name) {
+                PlaceScreen()
             }
         }
     }
