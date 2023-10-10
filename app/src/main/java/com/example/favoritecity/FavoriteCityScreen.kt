@@ -1,5 +1,6 @@
 package com.example.favoritecity
 
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -24,6 +25,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.favoritecity.data.DataSource
+import com.example.favoritecity.data.SmallDetail
 import com.example.favoritecity.ui.AppViewModel
 import com.example.favoritecity.ui.StartScreen
 import com.example.favoritecity.ui.CategoryScreen
@@ -53,8 +55,8 @@ fun FavoriteCityApp() {
                     currentScreen = currentScreen,
                     canNavigateBack = navController.previousBackStackEntry!=null,
                     navigateUp = {
-                        viewModel.updateStartScreenBool(navController.previousBackStackEntry!=null)
                         navController.navigateUp()
+                        viewModel.updateStartScreenBool(navController.previousBackStackEntry==null)
                     }
                 )
             }
@@ -76,12 +78,22 @@ fun FavoriteCityApp() {
             composable(route = FavoriteCityScreen.Category.name) {
                 CategoryScreen(
                     categories = DataSource.categories,
+                    onValueSelect = { viewModel.updateCategory(it) },
                     onClick = { navController.navigate(FavoriteCityScreen.Place.name) }
                 )
             }
 
             composable(route = FavoriteCityScreen.Place.name) {
-                PlaceScreen()
+                uiState.categoryChosen?.title?.let { it1 -> stringResource(id = it1) }
+                    ?.let { it2 -> Log.d("Category", it2) }
+                val placeChosenList: List<SmallDetail>
+                val categoryChosen = uiState.categoryChosen?.title
+                placeChosenList = if(categoryChosen==R.string.coffee) {
+                    DataSource.cafeList
+                } else {
+                    listOf()
+                }
+                PlaceScreen(placeList = placeChosenList)
             }
         }
     }

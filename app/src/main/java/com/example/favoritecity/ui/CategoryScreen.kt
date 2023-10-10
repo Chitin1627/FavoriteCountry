@@ -1,7 +1,5 @@
 package com.example.favoritecity.ui
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -24,13 +22,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.favoritecity.R
 import com.example.favoritecity.data.SmallDetail
 
 
 @Composable
 fun CategoryScreen(
     categories: List<SmallDetail>,
+    onValueSelect: (SmallDetail)->Unit,
     onClick: ()->Unit
 ) {
     LazyColumn(
@@ -38,9 +36,11 @@ fun CategoryScreen(
     ) {
         items(categories) {
             CategoryCard(
-                cardTitle = it.title,
-                cardImage = it.image,
-                onClick = onClick
+                category = it,
+                onClick = {
+                    onValueSelect(it)
+                    onClick()
+                }
             )
         }
     }
@@ -49,8 +49,7 @@ fun CategoryScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoryCard(
-    @StringRes cardTitle: Int,
-    @DrawableRes cardImage: Int,
+    category: SmallDetail,
     onClick: ()->Unit,
     modifier : Modifier = Modifier
 )
@@ -59,14 +58,16 @@ fun CategoryCard(
         modifier = modifier
             .fillMaxWidth()
             .padding(bottom = 16.dp),
-        onClick = onClick
+        onClick = {
+            onClick()
+        }
     ) {
         Row(
             modifier = modifier
                 .sizeIn(minHeight = 60.dp)
         ) {
             Image(
-                painter = painterResource(id = cardImage),
+                painter = painterResource(id = category.image),
                 contentDescription = null,
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
@@ -77,7 +78,7 @@ fun CategoryCard(
             )
             
             Text(
-                text = stringResource(id = cardTitle),
+                text = stringResource(id = category.title),
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
                     .padding(start = 12.dp)
@@ -89,6 +90,6 @@ fun CategoryCard(
 @Preview
 @Composable
 fun CardPreview() {
-    CategoryCard(cardTitle = R.string.coffee, cardImage = R.drawable.coffee_category, onClick = {})
+    //CategoryCard(cardTitle = R.string.coffee, cardImage = R.drawable.coffee_category, onClick = {})
 }
 
