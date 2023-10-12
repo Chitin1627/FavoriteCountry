@@ -18,4 +18,12 @@ object DataSource {
         SmallDetail(R.string.godt_brod_grunerlokka, R.drawable.godt_brod_grunerlokka),
         SmallDetail(R.string.fragnance_of_the_heart, R.drawable.fragrance_of_the_heart)
     )
+
+    val restaurantList = listOf(
+        SmallDetail(R.string.sabi_omakase_oslo, R.drawable.sabi_omakase_oslo),
+        SmallDetail(R.string.statholdergarden, R.drawable.statholdergaarden),
+        SmallDetail(R.string.eik_annen_etage, R.drawable.eik_annen_etage),
+        SmallDetail(R.string.hos_thea, R.drawable.hos_thea),
+        SmallDetail(R.string.maaemo, R.drawable.maaemo)
+    )
 }

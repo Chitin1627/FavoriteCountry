@@ -1,8 +1,8 @@
 package com.example.favoritecity.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,6 +12,8 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.favoritecity.data.DataSource
 import com.example.favoritecity.data.SmallDetail
 
 @Composable
@@ -31,7 +34,12 @@ fun PlaceScreen(
     placeList: List<SmallDetail>
 ) {
     LazyVerticalGrid(
-        columns = GridCells.Fixed(2)
+        columns = GridCells.Fixed(1),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+        modifier = Modifier.padding(
+            top = 16.dp,
+            bottom = 16.dp
+        )
     ) {
         items(placeList) {
             PlaceCard(it)
@@ -46,14 +54,18 @@ fun PlaceCard(
 ) {
     Card(
         shape = RoundedCornerShape(
-            topStart = 48.dp,
-            topEnd = 48.dp,
-            bottomStart = 16.dp,
-            bottomEnd = 16.dp
+            topStart = 64.dp,
+            topEnd = 64.dp,
+            bottomStart = 64.dp,
+            bottomEnd = 64.dp
         ),
         modifier = Modifier
-            .padding(8.dp)
-            .fillMaxHeight()
+            .padding(
+                start = 16.dp,
+                end = 16.dp
+            )
+            .fillMaxHeight(),
+        colors = CardDefaults.cardColors(MaterialTheme.colorScheme.primaryContainer)
     ) {
         Column(
             modifier = modifier
@@ -65,9 +77,9 @@ fun PlaceCard(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
-                        top = 16.dp,
-                        start = 16.dp,
-                        end = 16.dp
+                        top = 32.dp,
+                        start = 32.dp,
+                        end = 32.dp
                     )
                     .sizeIn(
                         minHeight = 200.dp,
@@ -77,8 +89,6 @@ fun PlaceCard(
                 alignment = Alignment.Center,
                 contentScale = ContentScale.Crop
             )
-
-            Spacer(modifier = Modifier.padding(top = 16.dp))
 
             Text(
                 text = stringResource(id = place.title),
@@ -95,5 +105,5 @@ fun PlaceCard(
 @Preview
 @Composable
 fun PlaceScreenPreview() {
-    //PlaceScreen()
+    PlaceScreen(placeList = DataSource.cafeList)
 }

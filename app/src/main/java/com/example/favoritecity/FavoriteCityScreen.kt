@@ -88,10 +88,10 @@ fun FavoriteCityApp() {
                     ?.let { it2 -> Log.d("Category", it2) }
                 val placeChosenList: List<SmallDetail>
                 val categoryChosen = uiState.categoryChosen?.title
-                placeChosenList = if(categoryChosen==R.string.coffee) {
-                    DataSource.cafeList
-                } else {
-                    listOf()
+                placeChosenList = when(categoryChosen) {
+                    R.string.coffee -> DataSource.cafeList
+                    R.string.restaurant -> DataSource.restaurantList
+                    else -> listOf()
                 }
                 PlaceScreen(placeList = placeChosenList)
             }
