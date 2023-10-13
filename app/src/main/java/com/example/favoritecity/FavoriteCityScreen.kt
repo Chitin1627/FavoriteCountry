@@ -91,6 +91,9 @@ fun FavoriteCityApp() {
                 placeChosenList = when(categoryChosen) {
                     R.string.coffee -> DataSource.cafeList
                     R.string.restaurant -> DataSource.restaurantList
+                    R.string.kid_friendly -> DataSource.kidFriendlyPlacesList
+                    R.string.parks -> DataSource.parkList
+                    R.string.northern_lights -> DataSource.northernLightsList
                     else -> listOf()
                 }
                 PlaceScreen(placeList = placeChosenList)

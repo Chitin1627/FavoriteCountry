@@ -8,7 +8,7 @@ object DataSource {
         SmallDetail(R.string.restaurant, R.drawable.restaurant_image),
         SmallDetail(R.string.kid_friendly, R.drawable.kid_friendly_image),
         SmallDetail(R.string.parks, R.drawable.park_image),
-        SmallDetail(R.string.shopping_centre, R.drawable.shopping_image)
+        SmallDetail(R.string.northern_lights, R.drawable.northern_lights)
     )
 
     val cafeList = listOf(
@@ -25,5 +25,25 @@ object DataSource {
         SmallDetail(R.string.eik_annen_etage, R.drawable.eik_annen_etage),
         SmallDetail(R.string.hos_thea, R.drawable.hos_thea),
         SmallDetail(R.string.maaemo, R.drawable.maaemo)
+    )
+
+    val kidFriendlyPlacesList = listOf(
+        SmallDetail(R.string.dovrefjell_sunndalsfjella_national_park, R.drawable.dovrefjell_sunndalsfjella_national_park),
+        SmallDetail(R.string.hunderfossen_familiepark, R.drawable.hunderfossen_familiepark),
+        SmallDetail(R.string.viking_museum, R.drawable.viking_museum)
+    )
+
+    val parkList = listOf(
+        SmallDetail(R.string.ovre_pasvik_national_park, R.drawable.ovre_pasvik_national_park),
+        SmallDetail(R.string.varangerhalv_ya_national_park, R.drawable.varangerhalv_ya_national_park),
+        SmallDetail(R.string.stringstabbursdalen_national_park, R.drawable.stabbursdalen_national_park),
+        SmallDetail(R.string.dovrefjell_sunndalsfjella_national_park, R.drawable.dovrefjell_sunndalsfjella_national_park)
+    )
+
+    val northernLightsList = listOf(
+        SmallDetail(R.string.lofoten, R.drawable.lofoten),
+        SmallDetail(R.string.tromso, R.drawable.tromso),
+        SmallDetail(R.string.svalbard, R.drawable.svalbard),
+        SmallDetail(R.string.trondheim, R.drawable.trondheim)
     )
 }

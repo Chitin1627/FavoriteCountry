@@ -19,4 +19,15 @@
     <string name="eik_annen_etage">Eik Annen Etage</string>
     <string name="hos_thea">Hos Thea</string>
     <string name="maaemo">Maaemo</string>
+    <string name="dovrefjell_sunndalsfjella_national_park">Dovrefjell Sunndalsfjella National Park</string>
+    <string name="hunderfossen_familiepark">Hunderfossen Familiepark</string>
+    <string name="viking_museum">Viking Museum</string>
+    <string name="ovre_pasvik_national_park">Ovre Pasvik National Park</string>
+    <string name="varangerhalv_ya_national_park">Varangerhalv Ya National Park</string>
+    <string name="stringstabbursdalen_national_park">Stabbursdalen National Park</string>
+    <string name="northern_lights">Northern Lights</string>
+    <string name="lofoten">Lofoten</string>
+    <string name="tromso">Tromsø</string>
+    <string name="svalbard">Svalbard</string>
+    <string name="trondheim">Trondheim</string>
 </resources>
